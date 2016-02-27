@@ -1,0 +1,40 @@
+{
+	name: "web.csulb.edu",
+	baseUrl: ["http://web.csulb.edu/colleges/coe/cecs/views/personnel/"],
+	userAgent: "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31",
+	timeout: 10000,
+	interval: 0,
+	retry: 10,
+	type: "新闻",
+	language: "English",
+	enabled: true,
+	pager: {
+		url: "",
+		offset: 0,
+		max: -1
+	},
+	list: {
+		selector: "div.news.left div.morenews li a",
+		date: {
+			selector: "",
+			offset: 0,
+			end: -1
+		}
+	},
+	article: {
+		headline: {
+			selector: "div h1.personnel_name"
+		},
+		content: {
+			selector: "div h2.personnel_info.professional p"
+		},
+		date: {
+			selector: "div.w950_k table tbody tr td.content",
+			offset: 10,
+			pattern: "yyyy-MM-dd"
+		},
+		image: {
+			selector: "div.w950_k table td.content font#Zoom div.TRS_Editor p.MsoNormal img"
+		}
+	}
+}
